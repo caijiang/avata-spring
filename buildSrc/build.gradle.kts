@@ -9,6 +9,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.7.20")
     implementation("org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin:1.7.20")
+    implementation("io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.1.0")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:1.7.20")
 }
 

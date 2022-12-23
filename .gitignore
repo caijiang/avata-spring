@@ -126,3 +126,4 @@ replay_pid*
 # Avoid ignore Gradle wrappper properties
 !gradle-wrapper.properties
 
+local_publish.sh

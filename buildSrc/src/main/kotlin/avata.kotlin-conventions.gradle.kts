@@ -16,11 +16,21 @@ java {
 }
 
 publishing {
+    repositories {
+        maven {
+//            https://docs.gradle.org/current/samples/sample_publishing_credentials.html
+            credentials(PasswordCredentials::class)
+            isAllowInsecureProtocol = true
+            val releasesRepoUrl = "http://47.99.219.2:8081/repository/maven-releases/"
+            val snapshotsRepoUrl = "http://47.99.219.2:8081/repository/maven-snapshots/"
+            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+        }
+    }
     publications {
         create<MavenPublication>("maven") {
             groupId = project.group.toString()
             artifactId = project.name
-            version = project.version.toString()
+            version = project.findProperty("fixedVersion")?.toString() ?: project.version.toString()
 
             from(components["java"])
         }
