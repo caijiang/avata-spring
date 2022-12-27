@@ -23,7 +23,8 @@ publishing {
             isAllowInsecureProtocol = true
             val releasesRepoUrl = "http://47.99.219.2:8081/repository/maven-releases/"
             val snapshotsRepoUrl = "http://47.99.219.2:8081/repository/maven-snapshots/"
-            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+            val v = project.findProperty("fixedVersion")?.toString() ?: project.version.toString()
+            url = uri(if (v.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
         }
     }
     publications {
