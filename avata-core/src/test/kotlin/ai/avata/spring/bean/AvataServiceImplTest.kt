@@ -30,6 +30,7 @@ class AvataServiceImplTest {
         val typeName = RandomStringUtils.randomAlphabetic(19)
         val currentTypes = service.queryNFTTypes(owner = newAccount)
         printPage(currentTypes)
+//        val classId = Common.uuidString().replace("-", "")
         val cn1 = service.createNFTType(typeName, newAccount)
         println("创建 NFTType 结果:$cn1")
         while (true) {
